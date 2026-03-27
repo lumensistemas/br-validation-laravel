@@ -54,10 +54,13 @@ jobs:
         run: composer update --prefer-stable --prefer-dist --no-interaction
 
       - name: Run static analysis
-        run: composer analyse
+        run: composer analyze
 
       - name: Run linting tests
         run: composer test:lint
+
+      - name: Execute type coverage tests
+        run: composer test:type-coverage
 
   tests:
     needs: changes
